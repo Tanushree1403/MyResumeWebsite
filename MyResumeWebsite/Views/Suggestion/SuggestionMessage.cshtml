@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Suggestions";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Suggestions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $('#btnSubmit').click(function () {
+            alert("Submit button clicked and event catched");
+            var link='mailto:shreetanu979@gmail.com?sunject=Message from'+
+                +'your website suggestions'
+                + '&body=' + document.getElementById('comment').value;
+                window.location.href = link;
+        });
+    </script>
+
+    <style>
+        body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .margin {
+            margin-bottom: 25px;
+        }
+
+        .margin-1 {
+            margin-bottom: 5px;
+        }
+
+        .bg-1 {
+            background-color: #23F0E4; /* Aqua */
+            color: #ffffff;
+        }
+
+        .bg-2 {
+            background-color: #11264B; /* Dark Blue */
+            color: #ffffff;
+        }
+
+        .bg-3 {
+            background-color: #F7F55B; /* Chrome */
+            color: #555555;
+        }
+
+        .bg-4 {
+            background-color: #2f2f2f; /* Black Gray */
+            color: #fff;
+        }
+
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .container-fluid-1 {
+            padding-top: 70px;
+            padding-bottom: 70px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <form>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div>
+                <button class="btn-primary" id="btnSubmit">Submit</button>
+            </div>
+        </form>
+        </div>
+
+</body>
+</html>
