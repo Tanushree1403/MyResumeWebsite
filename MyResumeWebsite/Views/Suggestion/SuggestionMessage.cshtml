@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Suggestions";
+
 }
 
 <!DOCTYPE html>
@@ -12,15 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-        $('#btnSubmit').click(function () {
-            alert("Submit button clicked and event catched");
-            var link='mailto:shreetanu979@gmail.com?sunject=Message from'+
-                +'your website suggestions'
-                + '&body=' + document.getElementById('comment').value;
-                window.location.href = link;
-        });
+    <script>
+            @ViewBag.content = document.getElementById("content").value;
     </script>
 
     <style>
@@ -91,19 +85,21 @@
         }
     </style>
 
+
 </head>
 <body>
     <div class="container-fluid">
-        <form>
+       
+@using (Html.BeginForm("PostSuggestionMessage", "Suggestion", FormMethod.Post))
+{
             <div class="form-group">
                 <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea  type="text" name="content" class="form-control" rows="5" id="content"></textarea>
             </div>
             <div>
-                <button class="btn-primary" id="btnSubmit">Submit</button>
+                <button type="submit"  class="btn-primary" id="btnSubmit">Submit</button>
             </div>
-        </form>
+}
         </div>
-
 </body>
 </html>
