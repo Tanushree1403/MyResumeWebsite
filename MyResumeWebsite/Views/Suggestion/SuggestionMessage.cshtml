@@ -1,8 +1,6 @@
 ﻿@{
     ViewBag.Title = "Suggestions";
-
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script>
-            @ViewBag.content = document.getElementById("content").value;
-    </script>
-
+    
     <style>
         body {
             font: 20px Montserrat, sans-serif;
@@ -85,21 +80,37 @@
         }
     </style>
 
-
 </head>
 <body>
-    <div class="container-fluid">
-       
 @using (Html.BeginForm("PostSuggestionMessage", "Suggestion", FormMethod.Post))
 {
-            <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea  type="text" name="content" class="form-control" rows="5" id="content"></textarea>
-            </div>
-            <div>
-                <button type="submit"  class="btn-primary" id="btnSubmit">Submit</button>
-            </div>
-}
+    @*<form id="myForm">*@
+        <div class="container-fluid">
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea id="myContent" type="text" name="content" class="form-control" rows="5"></textarea>
+                    <h3 style="color:red; display:none;" id="warning">Please leave suggestions here.</h3>
+                </div>
+                <div>
+                    <button type="submit" class="btn-primary" id="btnSubmit">Submit</button>
+                </div>
         </div>
+    @*</form>*@
+}
+    <script type="text/javascript">
+        $(document).ready(
+            $('#btnSubmit').click(function (event) {
+                var myContent = $('#myContent');
+                if (myContent.val().trim() == "") {
+                    event.preventDefault();
+                    $("#warning").show();
+                }
+                else {
+                    $("#warning").hide();
+                    $("#myForm").submit();
+                }
+            })
+            );
+    </script>
 </body>
 </html>

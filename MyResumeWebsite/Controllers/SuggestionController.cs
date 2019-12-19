@@ -49,7 +49,7 @@ namespace MyResumeWebsite.Controllers
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network
                 };
-                smptClient.Send("shreetanu979@gmail.com", "shreetanu979@gmail.com", 
+                smptClient.Send("shreetanu979@gmail.com", "shreetanu979@gmail.com",
                     "You have a suggestion", content);
                 return View();
             }
